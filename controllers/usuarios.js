@@ -4,6 +4,7 @@ const bcrypt = require("bcryptjs");
 const Usuario = require("../models/usuario");
 
 const { generarJWT } = require("../helpers/jwt");
+const usuario = require("../models/usuario");
 
 const getUsuarios = async (req, res) => {
   const desde = Number(req.query.desde) || 0;
@@ -89,7 +90,7 @@ const actualizarUsuario = async (req, res = response) => {
 
     res.json({
       ok: true,
-      msg: "Usuario actualizado",
+      usuario: usuarioDB,
     });
   } catch (error) {
     console.log(error);

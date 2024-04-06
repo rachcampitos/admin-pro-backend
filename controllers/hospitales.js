@@ -5,7 +5,7 @@ const getHospitales = async (req, res) => {
   const hospitales = await Hospital.find().populate("usuario", "nombre");
   res.json({
     ok: true,
-    msg: hospitales,
+    hospitales: hospitales,
   });
 };
 const crearHospitales = async (req, res = response) => {
